@@ -17,11 +17,11 @@ class Home extends Component{
 					<div className="body">
 						<br/>
 						<div className="quizzes">
-							<div className="row">
+							<div className="row-card">
 							{cards.map((card, i)=>{
 								return(
-									<Card style={{ width: '18rem' }} key={i} className="col-4 card" >
-									  <Link to={card.link}>
+									<Card style={{ width: '18rem' }} key={i} className="col-card card" >
+									  <Link to={card.link} className="a">
 									  <Card.Img variant="top" src={card.img} style={{height: '250px', marginTop: '5px'}}/>
 									  <Card.Body>
 									    <Card.Title>{card.title}</Card.Title>

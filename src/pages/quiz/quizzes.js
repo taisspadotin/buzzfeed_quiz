@@ -2,7 +2,7 @@ import React,{Component} from 'react';
 import '../style.scss';
 import info from './data';
 import Header from '../../components/header';
-import {Card} from 'react-bootstrap';
+import {Card, Row, Col} from 'react-bootstrap';
 import {Icon} from 'semantic-ui-react';
 
 
@@ -93,9 +93,13 @@ class Quizzes extends Component{
 
 			//percoreendo o objeto de resposta:
 			var NameAnswer;
+			var DescAnswer;
+			var ImgAswer;
 			for(var i=0; i<answers.length ; i++){
 				if(answers[i].option === chave){
 					NameAnswer = answers[i].result;
+					DescAnswer = answers[i].desc;
+					ImgAswer = answers[i].img;
 				}
 			}
 			
@@ -121,11 +125,16 @@ class Quizzes extends Component{
 									<div className="intro">
 										<h2>{card.option}</h2>
 									</div>
-									<div className="row">
+									<div className="row-card">
 									{card.values.map((card, i)=>{
 											return(
-												<Card style={{ width: '20rem' }} key={i} className="col-5 card"  onClick={()=>this.seleciona(j, card.peso, tot)}>
-												  <Card.Img variant="top" src={card.img} style={{height: '200px', marginTop: '5px'}}/>
+												<Card style={{ width: '20rem' }} key={i} className="col-dispo card"  onClick={()=>this.seleciona(j, card.peso, tot)}>
+												  {card.hasOwnProperty('img') && <Card.Img variant="top" src={card.img} style={{height: '200px', marginTop: '5px'}}/>}
+												  {card.hasOwnProperty('color') && 
+												  		<div className="card-div" style={{height: '200px', marginTop: '5px', background:card.color}}>
+												  			{card.hasOwnProperty('text') && <h3>{card.text}</h3>}
+												  		</div>
+												  }
 												  <Card.Body>
 												    <Card.Title>{card.title}</Card.Title>
 												    <Card.Text>
@@ -142,8 +151,32 @@ class Quizzes extends Component{
 					})}
 					{this.state.showResult === true && 
 						<div className="result">
-						ola
-							<div className="body">{NameAnswer}</div>
+						<br/>
+						<h4>{data.title}</h4>
+							<div className="body">
+								<Row style={{margin:'0'}}>
+									<Col sm={8} >
+										<h2>{NameAnswer}</h2>
+										<p>{DescAnswer}</p>
+										<br/>
+										<button className="botao-social" style={{background: '#3b5998'}}>
+											<Icon name="facebook"/>
+											Compartilhe
+										</button>
+										<button className="botao-social" style={{background: '#55acee'}}>
+											<Icon name="twitter"/>
+											Tuíte
+										</button>
+										<button className="botao-social" style={{background: '#0f65ef'}}>
+											<Icon name="copy"/>
+											Copiar Link
+										</button>
+									</Col>
+									<Col className="img" sm={4}>
+										<img src={ImgAswer}/>
+									</Col>
+								</Row>
+							</div>
 						<br/>
 						</div>
 					}

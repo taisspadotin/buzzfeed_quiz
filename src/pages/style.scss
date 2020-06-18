@@ -1,5 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
 $background: #f6d5e5;
+$font-color:#222222;
 
 @mixin fonts{
 	font-family: 'Roboto', sans-serif;
@@ -12,19 +13,23 @@ $background: #f6d5e5;
 	.body{
 		padding: 20px 20px 20px 20px;
 
+
 		.quizzes{
 			padding-left: 50px;
 			padding-right: 50px;
+			@media only screen and (max-width: 992px) {
+				padding-left: 5px;
+			}	
 		}
 	}
 }
 
-.row {
+.row-card {
 	display: flex;
 	flex-wrap: wrap;
-	margin: 0 -15px;
+	margin: 0;
 }
-.col-4{
+.col-card{
 	max-width: 23%;	
 	flex-basis: 23%;
 	padding: 0 15px;
@@ -35,7 +40,7 @@ $background: #f6d5e5;
 		flex-basis: 100%;
 	}	
 }
-.col-5{
+.col-dispo{
 	max-width: 45%;	
 	flex-basis: 45%;
 	padding: 0 15px;
@@ -46,9 +51,40 @@ $background: #f6d5e5;
 		flex-basis: 100%;
 	}	
 }
+/*.col-2{
+	max-width: 50%;	
+	flex-basis: 50%;
+	padding: 0 15px;
+	margin-bottom: 30px;
+
+	@media only screen and (max-width: 660px) {
+		max-width: 100%;
+		flex-basis: 100%;
+	}	
+}*/
 .card{
 	margin-right: 10px;
 	margin-left: 10px;
+	a{
+		text-decoration: none;
+		color: $font-color;
+		&:hover{
+			text-decoration: none;
+		}
+	}
+	overflow: hidden;
+	border: 2px solid #fff;
+			img{
+				width: 100%;
+				height: 100%;
+				-webkit-transition: -webkit-transform .5s ease;
+				transition: transform .5s ease;
+				&:hover{
+					-webkit-transform: scale(1.1);
+   					transform: scale(1.1);
+				}
+			}
+
 }
 
 
@@ -62,6 +98,8 @@ $background: #f6d5e5;
 				width: 100%;
 				margin-left: 5px;
 				margin-right: 5px;
+				padding-left: 10px;
+				padding-right: 10px;
 			}
 		h1{
 			font-size: 2.4rem;
@@ -77,11 +115,16 @@ $background: #f6d5e5;
 			h2{
 				text-align: center;
 				color: #fff;
-				font-size: 80px;
+				font-size: 5.5rem;
 				@include fonts;
 				background: #222222;
-				min-height: 210px;
+				min-height: 100px;
 				border-radius: 5px;
+				max-width: 100%;
+				padding: 10px;
+				@media only screen and (max-width: 992px) {
+					font-size: 3rem;
+				}
 			}
 		}
 		.social{
@@ -105,20 +148,47 @@ $background: #f6d5e5;
    					transform: scale(1.1);
 				}
 			}
+			.card-div{
+				width: 100%;
+				height: 100%;
+				-webkit-transition: -webkit-transform .5s ease;
+				transition: transform .5s ease;
+				&:hover{
+					-webkit-transform: scale(1.1);
+   					transform: scale(1.1);
+				}
+				h3{
+					text-align: center;
+					width: 100%;
+					margin: 5px;
+					font-size: 3rem;
+					@include fonts;
+					color: #fff;
+					font-weight: bold;
+					-webkit-text-stroke-width: 2px;
+					-webkit-text-stroke-color: #000;
+				}
+			}
 		}
 
 		.result{
 			margin-top: 50px;
-			margin-left:-15px;
+			margin-left: 0px;
 			background: rgb(228,13,118);
 			background: linear-gradient(28deg, rgba(228,13,118,1) 0%, rgba(238,50,37,1) 58%); 
 			border-radius: 5px;
 			width: 100%;
-			
+			padding-left: 10px;
+			h4{
+				color: #fff;
+				font-size: 1,375;
+				@include fonts;
+				font-weight: 700;
+			}
 			.body{
 				margin-left: auto;
     			margin-right: auto;
-				margin-top: 50px;	
+				margin-top: 40px;
 				/*margin-bottom: 20px;*/
 				align-items: center;
 				vertical-align: center;
@@ -126,9 +196,53 @@ $background: #f6d5e5;
 				width: 92%;
 				height: 50%;
 				/*padding: 0;*/
+				padding-right: 0px;
 				border-radius: 5px;
+				padding-top: 0;
+				padding-bottom: 0;
+				padding-left: 0;
+				img{
+					width: 100%;
+					height: 100%;
+				}
+				h2{
+					margin-top: 20px;
+					font-size: 1.3rem;
+					@include fonts;
+					font-weight: 700;
+				}
+				p{
+					font-size: 18px;
+					@include fonts;
+					line-height: 1.5;
+					margin-bottom: 10px; 
+				}
+				.img{
+					padding: 0;
+					margin: 0; 
+				}
+				/*.row{
+					width: 100%;
+					margin: 0;
+					padding: 0;
+					div{
+						margin-bottom: 0;
+					}
+				}*/
+				.botao-social{
+					border: 0;
+					border-radius: 5px;
+					color: #fff;
+					min-height: 30px;
+					margin-left: 5px;
+					margin-bottom: 5px;  
+				}
 
 			}
+
 		}
+
 	}
 }
+
+
