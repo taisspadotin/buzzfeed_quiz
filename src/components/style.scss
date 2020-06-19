@@ -1,5 +1,44 @@
+$main-color: #ee3322;
+@mixin fonts{
+	font-family: 'Roboto', sans-serif;
+}
+
+
 .header{
 	background: #fff;
 	box-shadow: 0 1px 3px rgba(0,0,0,.1);
 	min-height: 65px;
+	position: fixed;
+	top: 0;
+	z-index: 99999;
+	width: 100%;
+	padding-left: 70px;
+	padding-right: 70px;
+	@include fonts;
+	a{
+		/*min-width: 200px;*/
+
+	}
+	.navbar-brand{
+		font-weight: bold;
+		font-size: 1.9rem;
+		color: $main-color;
+	}
+	.mr-auto{
+		a{
+			min-width: 80px;	
+			text-align: center;
+			color: #222222 !important;		
+			@include fonts;
+			font-size: 16px;
+			font-weight: bold;
+		}
+	}
+	.end{
+		i{
+			font-size: 3rem;
+			margin-top: -15px;
+			color: $main-color;
+		}
+	}
 }

@@ -1,5 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
-$background: #f6d5e5;
+$background: #fff9f9;
 $font-color:#222222;
 
 @mixin fonts{
@@ -12,7 +11,7 @@ $font-color:#222222;
 	
 	.body{
 		padding: 20px 20px 20px 20px;
-
+		padding-top: 100px;
 
 		.quizzes{
 			padding-left: 50px;
@@ -94,6 +93,7 @@ $font-color:#222222;
 	.body{
 		width: 50%;
 		padding: 50px 50px 50px 50px;
+		padding-top: 100px;
 			@media only screen and (max-width: 992px) {
 				width: 100%;
 				margin-left: 5px;
@@ -138,6 +138,7 @@ $font-color:#222222;
 			cursor: pointer;
 			overflow: hidden;
 			border: 2px solid #fff;
+			box-shadow: 0 1px 10px rgba(0,0,0,.1);
 			img{
 				width: 100%;
 				height: 100%;
@@ -153,15 +154,17 @@ $font-color:#222222;
 				height: 100%;
 				-webkit-transition: -webkit-transform .5s ease;
 				transition: transform .5s ease;
+				padding: 5px;
 				&:hover{
 					-webkit-transform: scale(1.1);
    					transform: scale(1.1);
 				}
+				overflow: hidden;
 				h3{
 					text-align: center;
 					width: 100%;
 					margin: 5px;
-					font-size: 3rem;
+					font-size: 4em;
 					@include fonts;
 					color: #fff;
 					font-weight: bold;
@@ -179,12 +182,22 @@ $font-color:#222222;
 			border-radius: 5px;
 			width: 100%;
 			padding-left: 10px;
-			h4{
-				color: #fff;
-				font-size: 1,375;
-				@include fonts;
-				font-weight: 700;
+			.title{
+				h4{
+					color: #fff;
+					font-size: 1,375;
+					@include fonts;
+					font-weight: 700;
+					padding-left: 20px;
+				}
+				div{
+					align-self: center;
+					color: #fff;
+					font-weight: bold;
+				}
+				align-self: center;
 			}
+			
 			.body{
 				margin-left: auto;
     			margin-right: auto;

@@ -1,6 +1,7 @@
 import React,{Component} from 'react';
 import {Navbar, Nav, NavDropdown} from 'react-bootstrap';
 import './style.scss';
+import {Icon} from 'semantic-ui-react';
 
 class Header extends Component{
 	render(){
@@ -9,19 +10,16 @@ class Header extends Component{
 			  <Navbar.Brand href="/">Quizzes</Navbar.Brand>
 			  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
 			  <Navbar.Collapse id="responsive-navbar-nav">
-			    <Nav className="mr-auto">
+			    <Nav className="mr-auto" >
+			      <Nav.Link href="#features">News</Nav.Link>
+			      <Nav.Link href="#features">Vozes</Nav.Link>
+			      <Nav.Link href="#features">Tasty Demais</Nav.Link>
 			      <Nav.Link href="#features">Testes</Nav.Link>
-			      <NavDropdown title="News" id="collasible-nav-dropdown">
-			        <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-			        <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
-			        <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-			        <NavDropdown.Divider />
-			        <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
-			      </NavDropdown>
+			      <Nav.Link href="#features">Shopping</Nav.Link>
+			      <Nav.Link href="#features">Sing In</Nav.Link>
 			    </Nav>
-			    <Nav>
-			      <Nav.Link eventKey={2} href="#memes">
-			      </Nav.Link>
+			    <Nav className="end">
+			    	<Icon name="bomb"/>
 			    </Nav>
 			  </Navbar.Collapse>
 			</Navbar>

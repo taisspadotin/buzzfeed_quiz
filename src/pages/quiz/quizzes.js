@@ -4,6 +4,7 @@ import info from './data';
 import Header from '../../components/header';
 import {Card, Row, Col} from 'react-bootstrap';
 import {Icon} from 'semantic-ui-react';
+import {Link} from 'react-router-dom';
 
 
 
@@ -152,10 +153,20 @@ class Quizzes extends Component{
 					{this.state.showResult === true && 
 						<div className="result">
 						<br/>
-						<h4>{data.title}</h4>
+						<Row className="title">
+							<Col sm={9}>
+								<h4>{data.title}</h4>
+							</Col>
+							<Col sm={3} style={{padding: '0'}}>
+								<a onClick={()=>window.location.reload()} style={{cursor: 'pointer'}}>
+									<Icon name="redo"/>
+									Refaça o quiz
+								</a>
+							</Col>
+						</Row>
 							<div className="body">
 								<Row style={{margin:'0'}}>
-									<Col sm={8} >
+									<Col sm={8}>
 										<h2>{NameAnswer}</h2>
 										<p>{DescAnswer}</p>
 										<br/>
@@ -173,7 +184,9 @@ class Quizzes extends Component{
 										</button>
 									</Col>
 									<Col className="img" sm={4}>
-										<img src={ImgAswer}/>
+										{ImgAswer !== null && 
+											<img src={ImgAswer}/>
+										}
 									</Col>
 								</Row>
 							</div>
