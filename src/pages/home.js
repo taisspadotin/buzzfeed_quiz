@@ -8,9 +8,8 @@ import info from './quiz/data';
 class Home extends Component{
 
 	render(){
-		//let cards = [{title: 'Qual bebida você seria?', desc: 'Descubra qual bebida mais combina com você', img:require('../img/milk.jpg'), link:'/quizzes?id=1'}, {title: 'Qual animal nojento você seria?', link:'#'}, ];
 		let cards =  info.quizzes;
-		//console.log(info);
+		
 		return(
 				<div className="home">
 					<Header/>
