@@ -6,8 +6,6 @@ import {Card, Row, Col} from 'react-bootstrap';
 import {Icon} from 'semantic-ui-react';
 import {Link} from 'react-router-dom';
 
-
-
 class Quizzes extends Component{
 	constructor(props){
 		super(props);
@@ -18,45 +16,24 @@ class Quizzes extends Component{
 			showResult: false
 		};
 	}
-	componentDidMount = async () =>{
-		/*console.log('to');
-		const queryString = window.location.search;
-		const urlParams = new URLSearchParams(queryString);
-		const id_params = urlParams.get('id');
-		//console.log(id);
-
-		let data = info.quizzes.filter( proj => ( proj.id === parseInt(id_params)));
-		data = data[0];
-		let cards = data.cards;
-		console.log(data);
-		this.setState({data: cards});
-		console.log(this.state.data);
-		*/
-	}
+	
 	seleciona = (i, peso, total) => {
 		let result = this.state.result;
 		result.push(peso);
 		let visible = this.state.visible;
 		visible.push(i);
 		this.setState({result, visible});
-		if(i === total){
-			this.setState({showResult: true});
-			
-		}
-		
+		if(i === total){ this.setState({showResult: true}); }
 	}
+	
 	render(){
-		
-		//console.log(cards);
 		const queryString = window.location.search;
 		const urlParams = new URLSearchParams(queryString);
 		const id_params = urlParams.get('id');
-		//console.log(id);
-
+	
 		let data = info.quizzes.filter( proj => ( proj.id === parseInt(id_params)));
 		data = data[0];
-		//console.log(data);
-
+	
 		let cards = data.cards;
 		let tot = data.cards.length;
 		tot = tot - 1;
@@ -69,14 +46,9 @@ class Quizzes extends Component{
 			let t = {}; //variavel que vai contar quantas respostas tem
 
 			result.forEach(value => {
-				if(t[value]){
-					t[value]++;
-				}
-				else{
-					t[value] = 1;
-				}
+				if(t[value]){ t[value]++; }
+				else{ t[value] = 1; }
 			});
-			//console.log(t);
 			
 			//pegar o que tem maior valor
 			var maior = -Infinity;
@@ -89,8 +61,6 @@ class Quizzes extends Component{
 					}
 				}
 			}
-			//console.log(chave);
-			//console.log(answers);
 
 			//percoreendo o objeto de resposta:
 			var NameAnswer;
